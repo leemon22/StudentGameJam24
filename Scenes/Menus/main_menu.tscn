@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://4woxv4axe8v7"]
+
+[ext_resource type="Script" path="res://Scripts/Menus/main_menu.gd" id="1_w4h5n"]
+[ext_resource type="PackedScene" uid="uid://bh2h3wmow36ly" path="res://Scenes/Menus/menu_button.tscn" id="1_x55mq"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w4h5n")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 555.0
+offset_right = -555.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 126
+text = "Milky Way"
+
+[node name="Play" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_x55mq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Jugar"
+
+[node name="Settings" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_x55mq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ajustes"
+
+[node name="Credits" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_x55mq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Créditos"
+
+[node name="Exit" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_x55mq")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

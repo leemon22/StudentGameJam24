@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0elqns3n0eb3"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Milks/milk.gd" id="1_3sma5"]
+[ext_resource type="Texture2D" uid="uid://mnw1xp7q42wc" path="res://Art/Milks/milk.png" id="1_6k2qg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jtb4o"]
+radius = 58.2151
+
+[node name="Milk" type="Area2D"]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_3sma5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.00112635
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_6k2qg")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_jtb4o")
